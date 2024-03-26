@@ -2,7 +2,6 @@
 A collaborative Point of Sales Systems project for second semester - final term on Software Design. Creating a Point of Sales System for an existing business named "Goshi Cafe", integrating a riders application with real time chatrooms and gps tracking.
 #
 ## Development Timeline
-#
 **15/03/2024**
 - Planning the structure of databases
 - Getting started on geolocation api and firebase

@@ -32,10 +32,11 @@ nav{
     display: block;
 }
 
+
 nav .nav-bar{
     position: relative;
     height: 100%;
-    max-width: 1000px;
+    width: 100%;
     background-color: #dbd6d3;
     margin: 0 auto;
     
@@ -43,10 +44,17 @@ nav .nav-bar{
     align-items: center;
     justify-content: space-between;
 }
+
+.nav-bar span {
+    margin-left: 20px;
+    margin-right: auto;
+}
+
 .nav-bar .nav-links{
     display: flex;
     align-items: center;
     margin-left: auto;
+    margin-right: 20px;
 }
 
 .nav-bar .nav-links li{
@@ -120,7 +128,7 @@ nav .nav-bar{
 }
 .containermenu{
     background-color: #dbd6d3;
-    width: 800px;
+    width: calc(100% - 380px);
     margin-top: 200px;
     margin-left: 380px;
     
@@ -180,7 +188,7 @@ nav .nav-bar{
     text-decoration: none;
     font-family: "Kufam", sans-serif;
     position: fixed;
-    margin-left: 910px;
+    right: 20px;
     margin-top: 200px;
     z-index: 100;
 
@@ -196,7 +204,7 @@ nav .nav-bar{
     text-decoration: none;
     font-family: "Kufam", sans-serif;
     position: fixed;
-    margin-left: -50px;
+    left: 320px;
     margin-top: 200px;
     z-index: 100;
 }
@@ -204,4 +212,8 @@ nav .nav-bar{
     width: 50px;
     height: 50px;
     color: #0c0d0a;
+}
+
+.containercontent {
+    width: calc(100%);
 }

@@ -34,3 +34,6 @@ A collaborative Point of Sales Systems project for second semester - final term 
 - Designing Goshi Admin web UI
 - Designing Goshi User web UI
 #
+**27/03/2024**
+- Created the chat feature backend
+- Designed Goshi User homepage web UI

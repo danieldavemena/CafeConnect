@@ -5,11 +5,14 @@ import {
   getDoc,
   updateDoc,
   getDocs,
+  addDoc,
   doc,
   collection,
   onSnapshot,
   query,
   where,
+  orderBy,
+  serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 import {
   getAuth,
@@ -56,27 +59,43 @@ onSnapshot(
         customers.data().password
       );
 
-      document.querySelector(".name").innerHTML = `<h3>${name}</h3>`;
+      
     });
   }
 );
 
-// // Displaying unclaimed orders
-// onSnapshot(
-//   query(collection(db, "goshiOrders"), where("riderID", "==", "none")),
-//   (waitingOrder) => {
-//     waitingOrder.docChanges().forEach((order) => {
-//       let element = document.querySelector(".order");
-//       console.log(order.doc.data().items);
-//       console.log(order.type);
+// Displaying unclaimed orders
+onSnapshot(
+  query(collection(db, "goshiMessages"), orderBy('createdAt', 'asc')),
+  (messages) => {
+    messages.docChanges().forEach((message) => {
+      console.log(message.doc.data())
 
-//       if (order.type === "added") {
-//       } else if (order.type == "modified") {
-//       } else if (order.type === "removed") {
-//       }
-//     });
-//   }
-// );
+      if (message.type === "added") {
+        if(message.doc.data().sender == 'nvswvZRJDaQygJVpoOUBgijH6St2') {
+          document.querySelector('.bubble').innerHTML += `<div class="id-${message.doc.id} textBubble left">${message.doc.data().message}</div>`
+        } else {
+          document.querySelector('.bubble').innerHTML += `<div class="id-${message.doc.id} textBubble right">${message.doc.data().message}</div>`
+        }
+      } else if (message.type == "modified") {
+      } else if (message.type === "removed") {
+      }
+    });
+  }
+);
+
+document.querySelector('.messageHolder').addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  addDoc(collection(db, 'goshiMessages'), {
+    createdAt: serverTimestamp(),
+    receiver: 'nvswvZRJDaQygJVpoOUBgijH6St2',
+    message: document.querySelector('.messageHolder').message.value,
+    sender: customerID
+  }).then(() => {
+    document.querySelector('.messageHolder').reset()
+  })
+})
 
 // // Take order from notifications
 // document.querySelector(".takeOrder").addEventListener("click", (e) => {

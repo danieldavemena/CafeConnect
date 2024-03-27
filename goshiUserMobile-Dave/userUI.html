@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="./userUI.css" />
     <link rel="stylesheet" href="../globalAssets/variables.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,12 +23,21 @@
           width="40px"
           height="40px"
         />
-        <h2>GOSHI RIDERS</h2>
       </div>
+      <ul class="options">
+        <li><img width="40" height="35" src="https://img.icons8.com/windows/96/0b0d0a/menu--v5.png" alt="menu--v5"/></li>
+        <!-- <li class="userSettings"><img width="40" height="40" src="https://img.icons8.com/windows/96/0b0d0a/user-male-circle.png" alt="user-male-circle"/></li> -->
+      </ul>
     </div>
 
-    <div class="customerName">
-      <div class="name"></div>
+    <div class="conversation">
+      <div class="messages">
+        <div class="bubble"></div>
+      </div>
+      <form action="" class="messageHolder">
+        <input type="text" name="message" id="" class="message">
+        <input type="submit" value="SEND" class="sendMessage">
+      </form>
     </div>
   </body>
 </html>

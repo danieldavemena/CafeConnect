@@ -41,6 +41,17 @@
               </form>
             </div>
           </div>
+
+          <div class="conversation">
+            <div class="customerNameBar"><div class="customerName left"></div><div class="closeChat right" onclick="closeChat()"><img width="45" height="45" src="https://img.icons8.com/windows/256/56774a/cancel.png" alt="cancel"/></div></div>
+            <div class="messages">
+              <div class="bubble"></div>
+            </div>
+            <form action="" class="messageHolder">
+              <input type="text" name="message" id="" class="message" autocomplete="off">
+              <input type="submit" value="SEND" class="sendMessage">
+            </form>
+          </div>
           
           <div class="homepage">
             <div class="dashboard">
@@ -161,6 +172,27 @@ function seeItem(id, items, price, quantity) {
         <div><p class="itemLabel"><b>Price:</b></p> <p class="itemData">${price}</div></p>  
       `;
     console.log(document.querySelector('.takeOrder'));
+}
+
+function chat(customerID, orderID, customerName) {
+    window.customerID = customerID
+    window.orderID = orderID
+    window.customerName = customerName
+    console.log(customerID)
+
+    document.querySelector('.customerName').innerHTML = `<h3>${customerName}</h3>`
+    
+    document.querySelector('.conversation').style['display'] = 'flex'
+    document.querySelector('.bottombar').style['display'] = 'none'
+    homepage.style['display']= 'none';
+    orderList.style['display']= 'none';
+    usersettings.style['display']= 'none';
+}
+
+function closeChat() {
+  document.querySelector('.conversation').style['display'] = 'none'
+  orderList.style['display']= 'flex';
+  document.querySelector('.bottombar').style['display'] = 'flex'
 }
 
 function closePopup() {

@@ -74,8 +74,10 @@ onSnapshot(
       if (message.type === "added") {
         if(message.doc.data().sender == 'nvswvZRJDaQygJVpoOUBgijH6St2') {
           document.querySelector('.bubble').innerHTML += `<div class="id-${message.doc.id} textBubble left">${message.doc.data().message}</div>`
+          document.querySelector('.bubble').scrollIntoView({ block: 'end'})
         } else {
           document.querySelector('.bubble').innerHTML += `<div class="id-${message.doc.id} textBubble right">${message.doc.data().message}</div>`
+          document.querySelector('.bubble').scrollIntoView({ block: 'end'})
         }
       } else if (message.type == "modified") {
       } else if (message.type === "removed") {
@@ -87,13 +89,14 @@ onSnapshot(
 document.querySelector('.messageHolder').addEventListener('submit', (e) => {
   e.preventDefault();
 
+  let message = document.querySelector('.messageHolder').message.value;
+  document.querySelector('.messageHolder').reset();
+
   addDoc(collection(db, 'goshiMessages'), {
     createdAt: serverTimestamp(),
     receiver: 'nvswvZRJDaQygJVpoOUBgijH6St2',
-    message: document.querySelector('.messageHolder').message.value,
+    message: message,
     sender: customerID
-  }).then(() => {
-    document.querySelector('.messageHolder').reset()
   })
 })
 

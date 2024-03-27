@@ -1,7 +1,7 @@
 
  // Import the functions you need from the SDKs you need
  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
- import { getFirestore, getDoc, updateDoc, getDocs, doc, collection, onSnapshot, query, where } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+ import { getFirestore, getDoc, updateDoc, getDocs, addDoc,doc, collection, onSnapshot, query, where,  orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
  import { getAuth, signInWithEmailAndPassword, signOut, EmailAuthProvider, reauthenticateWithCredential, updatePassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js"
  // TODO: Add SDKs for Firebase products that you want to use
  // https://firebase.google.com/docs/web/setup#available-libraries
@@ -95,9 +95,9 @@ onSnapshot(query(collection(db, 'goshiOrders'), where("riderID", "==", riderID))
     console.log(order.type)
 
     if(order.type === 'added') {
-      element.innerHTML += `<div class="id-${order.doc.id}-${riderID}"><img class="bean" width="30" height="30" src="https://img.icons8.com/fluency-systems-regular/96/FFFFFF/coffee-beans-.png" alt="coffee-beans-"/><p><b>${order.doc.data().name}</b></p><button class="seeItem">CHAT</button></div>`;
+      element.innerHTML += `<div class="id-${order.doc.id}-${riderID}"><img class="bean" width="30" height="30" src="https://img.icons8.com/fluency-systems-regular/96/FFFFFF/coffee-beans-.png" alt="coffee-beans-"/><p><b>${order.doc.data().name}</b></p><button onclick="chat('${order.doc.data().customerID}', '${order.doc.id}', '${order.doc.data().name}')" class="chat">CHAT</button></div>`;
     } else if (order.type == 'modified') {
-      document.querySelector(`.id-${order.doc.id}-${riderID}`).innerHTML = `<img class="bean" width="30" height="30" src="https://img.icons8.com/fluency-systems-regular/96/FFFFFF/coffee-beans-.png" alt="coffee-beans-"/><b>${order.doc.data().name}</b></p><button class="seeItem">CHAT</button></div>`;
+      document.querySelector(`.id-${order.doc.id}-${riderID}`).innerHTML = `<img class="bean" width="30" height="30" src="https://img.icons8.com/fluency-systems-regular/96/FFFFFF/coffee-beans-.png" alt="coffee-beans-"/><b>${order.doc.data().name}</b></p><button onclick="chat('${order.doc.data().customerID}', '${order.doc.id}', '${order.doc.data().name}')" class="chat">CHAT</button></div>`;
     } else if (order.type === 'removed') {
       document.querySelector(`.id-${order.doc.id}-${riderID}`).parentNode.removeChild(document.querySelector(`.id-${order.doc.id}-${riderID}`));
     }
@@ -136,6 +136,66 @@ document.querySelector('.credentialChange').addEventListener('submit', (e) => {
     form.reset()
     alert('Password does not match')
   }
+})
+
+let oldState = undefined;
+let ready;
+
+setInterval(() => {
+  let newState = window.customerID
+
+  if(oldState != newState) {
+    //document.querySelector('.textBubble').parentNode.removeChild(document.querySelector('.textBubble'))
+
+    getDocs( query(collection(db, "goshiMessages"), orderBy('createdAt', 'asc'))).then((messages) => {
+        messages.docs.forEach((message) => {
+          if(message.data().sender == newState ) {
+            document.querySelector('.bubble').innerHTML += `<div class="id-${message.id} textBubble left">${message.data().message}</div>`
+            document.querySelector('.bubble').scrollIntoView({ block: 'end'})
+          } else if (message.data().sender == riderID){
+            document.querySelector('.bubble').innerHTML += `<div class="id-${message.id} textBubble right">${message.data().message}</div>`
+            document.querySelector('.bubble').scrollIntoView({ block: 'end'})
+          }
+        })
+    }) 
+    ready = riderID
+    oldState = newState
+  }
+}, 10);
+
+onSnapshot(
+  query(collection(db, "goshiMessages"), orderBy('createdAt', 'asc')),
+  (messages) => {
+    messages.docChanges().forEach((message) => {
+      console.log(message.doc.data().sender)
+
+      if (message.type === "added") {
+        if(message.doc.data().sender == window.customerID ) {
+          document.querySelector('.bubble').innerHTML += `<div class="id-${message.doc.id} textBubble left">${message.doc.data().message}</div>`
+          document.querySelector('.bubble').scrollIntoView({ block: 'end'})
+        } else if (message.doc.data().sender == ready){
+          document.querySelector('.bubble').innerHTML += `<div class="id-${message.doc.id} textBubble right">${message.doc.data().message}</div>`
+          document.querySelector('.bubble').scrollIntoView({ block: 'end'})
+        }
+      } else if (message.type == "modified") {
+      } else if (message.type === "removed") {
+      }
+    });
+  }
+);
+
+document.querySelector('.messageHolder').addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  let message = document.querySelector('.messageHolder').message.value;
+  document.querySelector('.messageHolder').reset()
+
+  addDoc(collection(db, 'goshiMessages'), {
+    createdAt: serverTimestamp(),
+    receiver: window.customerID,
+    message: message,
+    sender: riderID
+  })
 })
 
 // Logging Out

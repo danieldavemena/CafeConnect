@@ -390,3 +390,17 @@ button {
 .logoBar img {
     transform: translateY(-50px);
 }
+
+.isLoggedOut {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.isLoggedOut p {
+    margin-top: -10px;
+    font-size: 10pt;
+}

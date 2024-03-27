@@ -31,3 +31,6 @@ A collaborative Point of Sales Systems project for second semester - final term 
 **26/03/2024**
 - Created a change password system for Goshi Riders web app
 - User menu page done
+- Designing Goshi Admin web UI
+- Designing Goshi User web UI
+#

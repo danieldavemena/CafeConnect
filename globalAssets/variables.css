@@ -1,0 +1,13 @@
+body {
+    font-family: "Kufam", sans-serif;
+    font-optical-sizing: auto;
+  }
+  
+  :root {
+      --color-bg: #dbd6d3;
+      --color-text-primary: #0B0D0A;
+      --color-accent-1: #34170A;
+      --color-text-secondary: white;
+      --color-box-shadow: #0b0d0a94;
+      --color-accent-2: #56774A;
+  }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="../globalAssets/variables.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inria+Sans&family=Kufam:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Goshi User</title>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="title">
+        <img
+          src="../globalAssets/img/goshiLogo.png"
+          alt=""
+          width="40px"
+          height="40px"
+        />
+        <h2>GOSHI RIDERS</h2>
+      </div>
+    </div>
+
+    <div class="customerName">
+      <div class="name"></div>
+    </div>
+  </body>
+</html>
+<script type="module" src="./userUI.js"></script>
+<script>
+  const home = document.querySelector(".home");
+  const orders = document.querySelector(".orders");
+  const profile = document.querySelector(".profile");
+
+  const homepage = document.querySelector(".homepage");
+  const orderList = document.querySelector(".orderList");
+  const usersettings = document.querySelector(".userSettings");
+
+  home.addEventListener("click", () => {
+    homepage.style["display"] = "flex";
+    orderList.style["display"] = "none";
+    usersettings.style["display"] = "none";
+  });
+
+  orders.addEventListener("click", () => {
+    homepage.style["display"] = "none";
+    orderList.style["display"] = "flex";
+    usersettings.style["display"] = "none";
+  });
+
+  profile.addEventListener("click", () => {
+    homepage.style["display"] = "none";
+    orderList.style["display"] = "none";
+    usersettings.style["display"] = "flex";
+  });
+
+  function seeItem(id, items, price, quantity) {
+    window.orderID = id;
+
+    document.body.style["overflow"] = "hidden";
+    document.querySelector(".items").style["display"] = "flex";
+    document.querySelector(".orderItems").innerHTML = `
+        <div><p class="itemLabel"><b>Items:</b></p> <p class="itemData">${items}</div></p>
+        <div><p class="itemLabel"><b>Quantity:</b></p> <p class="itemData">${quantity}</div></p>
+        <div><p class="itemLabel"><b>Price:</b></p> <p class="itemData">${price}</div></p>  
+      `;
+    console.log(document.querySelector(".takeOrder"));
+  }
+
+  function closePopup() {
+    document.body.style["overflow"] = "auto";
+    document.querySelector(".items").style["display"] = "none";
+    document.querySelector(".changePassword").style["display"] = "none";
+  }
+</script>

@@ -12,7 +12,7 @@ import {
   query,
   where,
   orderBy,
-  serverTimestamp
+  serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 import {
   getAuth,
@@ -58,26 +58,34 @@ onSnapshot(
         customers.data().email,
         customers.data().password
       );
-
-      
     });
   }
 );
 
 // Displaying unclaimed orders
 onSnapshot(
-  query(collection(db, "goshiMessages"), orderBy('createdAt', 'asc')),
+  query(collection(db, "goshiMessages"), orderBy("createdAt", "asc")),
   (messages) => {
     messages.docChanges().forEach((message) => {
-      console.log(message.doc.data())
+      console.log(message.doc.data());
 
       if (message.type === "added") {
-        if(message.doc.data().sender == 'nvswvZRJDaQygJVpoOUBgijH6St2' && message.doc.data().customer == customerID) {
-          document.querySelector('.bubble').innerHTML += `<div class="id-${message.doc.id} textBubble left">${message.doc.data().message}</div>`
-          document.querySelector('.bubble').scrollIntoView({ block: 'end'})
-        } else if (message.doc.data().sender == customerID && message.doc.data().customer == customerID) {
-          document.querySelector('.bubble').innerHTML += `<div class="id-${message.doc.id} textBubble right">${message.doc.data().message}</div>`
-          document.querySelector('.bubble').scrollIntoView({ block: 'end'})
+        if (
+          message.doc.data().sender == "nvswvZRJDaQygJVpoOUBgijH6St2" &&
+          message.doc.data().customer == customerID
+        ) {
+          document.querySelector(".bubble").innerHTML += `<div class="id-${
+            message.doc.id
+          } textBubble left">${message.doc.data().message}</div>`;
+          document.querySelector(".bubble").scrollIntoView({ block: "end" });
+        } else if (
+          message.doc.data().sender == customerID &&
+          message.doc.data().customer == customerID
+        ) {
+          document.querySelector(".bubble").innerHTML += `<div class="id-${
+            message.doc.id
+          } textBubble right">${message.doc.data().message}</div>`;
+          document.querySelector(".bubble").scrollIntoView({ block: "end" });
         }
       } else if (message.type == "modified") {
       } else if (message.type === "removed") {
@@ -86,20 +94,20 @@ onSnapshot(
   }
 );
 
-document.querySelector('.messageHolder').addEventListener('submit', (e) => {
+document.querySelector(".messageHolder").addEventListener("submit", (e) => {
   e.preventDefault();
 
-  let message = document.querySelector('.messageHolder').message.value;
-  document.querySelector('.messageHolder').reset();
+  let message = document.querySelector(".messageHolder").message.value;
+  document.querySelector(".messageHolder").reset();
 
-  addDoc(collection(db, 'goshiMessages'), {
+  addDoc(collection(db, "goshiMessages"), {
     createdAt: serverTimestamp(),
-    receiver: 'nvswvZRJDaQygJVpoOUBgijH6St2',
+    receiver: "nvswvZRJDaQygJVpoOUBgijH6St2",
     message: message,
     sender: customerID,
-    customer: customerID
-  })
-})
+    customer: customerID,
+  });
+});
 
 // // Take order from notifications
 // document.querySelector(".takeOrder").addEventListener("click", (e) => {

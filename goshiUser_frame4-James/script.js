@@ -19,122 +19,121 @@ const content3prev = document.getElementById("prev3");
 const content4prev = document.getElementById("prev4");
 const content5prev = document.getElementById("prev5");
 
-
-milktoggleLink.addEventListener("click", function(event) {
-    event.preventDefault();
+milktoggleLink.addEventListener("click", function (event) {
+  event.preventDefault();
   content1.style.display = "none";
   content2.style.display = "block";
   content3.style.display = "none";
   content4.style.display = "none";
   content5.style.display = "none";
 });
-content1next.addEventListener("click", function(event) {
+content1next.addEventListener("click", function (event) {
   event.preventDefault();
-content1.style.display = "none";
-content2.style.display = "block";
-content3.style.display = "none";
-content4.style.display = "none";
-content5.style.display = "none";
+  content1.style.display = "none";
+  content2.style.display = "block";
+  content3.style.display = "none";
+  content4.style.display = "none";
+  content5.style.display = "none";
 });
-content1prev.addEventListener("click", function(event) {
+content1prev.addEventListener("click", function (event) {
   event.preventDefault();
-content1.style.display = "block";
-content2.style.display = "none";
-content3.style.display = "none";
-content4.style.display = "none";
-content5.style.display = "none";
+  content1.style.display = "block";
+  content2.style.display = "none";
+  content3.style.display = "none";
+  content4.style.display = "none";
+  content5.style.display = "none";
 });
 
-fruittoggleLink.addEventListener("click", function(event) {
-    event.preventDefault();
+fruittoggleLink.addEventListener("click", function (event) {
+  event.preventDefault();
   content1.style.display = "none";
   content2.style.display = "none";
   content3.style.display = "block";
   content4.style.display = "none";
   content5.style.display = "none";
 });
-content2next.addEventListener("click", function(event) {
+content2next.addEventListener("click", function (event) {
   event.preventDefault();
-content1.style.display = "none";
-content2.style.display = "none";
-content3.style.display = "block";
-content4.style.display = "none";
-content5.style.display = "none";
+  content1.style.display = "none";
+  content2.style.display = "none";
+  content3.style.display = "block";
+  content4.style.display = "none";
+  content5.style.display = "none";
 });
-content2prev.addEventListener("click", function(event) {
+content2prev.addEventListener("click", function (event) {
   event.preventDefault();
-content1.style.display = "none";
-content2.style.display = "block";
-content3.style.display = "none";
-content4.style.display = "none";
-content5.style.display = "none";
+  content1.style.display = "none";
+  content2.style.display = "block";
+  content3.style.display = "none";
+  content4.style.display = "none";
+  content5.style.display = "none";
 });
 
-snacktoggleLink.addEventListener("click", function(event) {
-    event.preventDefault();
+snacktoggleLink.addEventListener("click", function (event) {
+  event.preventDefault();
   content1.style.display = "none";
   content2.style.display = "none";
   content3.style.display = "none";
   content4.style.display = "block";
   content5.style.display = "none";
 });
-content3next.addEventListener("click", function(event) {
+content3next.addEventListener("click", function (event) {
   event.preventDefault();
-content1.style.display = "none";
-content2.style.display = "none";
-content3.style.display = "none";
-content4.style.display = "block";
-content5.style.display = "none";
+  content1.style.display = "none";
+  content2.style.display = "none";
+  content3.style.display = "none";
+  content4.style.display = "block";
+  content5.style.display = "none";
 });
-content3prev.addEventListener("click", function(event) {
+content3prev.addEventListener("click", function (event) {
   event.preventDefault();
-content1.style.display = "none";
-content2.style.display = "none";
-content3.style.display = "block";
-content4.style.display = "none";
-content5.style.display = "none";
+  content1.style.display = "none";
+  content2.style.display = "none";
+  content3.style.display = "block";
+  content4.style.display = "none";
+  content5.style.display = "none";
 });
 
-discounttoggleLink.addEventListener("click", function(event) {
-    event.preventDefault();
+discounttoggleLink.addEventListener("click", function (event) {
+  event.preventDefault();
   content1.style.display = "none";
   content2.style.display = "none";
   content3.style.display = "none";
   content4.style.display = "none";
   content5.style.display = "block";
 });
-content4next.addEventListener("click", function(event) {
+content4next.addEventListener("click", function (event) {
   event.preventDefault();
-content1.style.display = "none";
-content2.style.display = "none";
-content3.style.display = "none";
-content4.style.display = "none";
-content5.style.display = "block";
+  content1.style.display = "none";
+  content2.style.display = "none";
+  content3.style.display = "none";
+  content4.style.display = "none";
+  content5.style.display = "block";
 });
-content4prev.addEventListener("click", function(event) {
+content4prev.addEventListener("click", function (event) {
   event.preventDefault();
-content1.style.display = "none";
-content2.style.display = "none";
-content3.style.display = "none";
-content4.style.display = "block";
-content5.style.display = "none";
+  content1.style.display = "none";
+  content2.style.display = "none";
+  content3.style.display = "none";
+  content4.style.display = "block";
+  content5.style.display = "none";
 });
 
-content5next.addEventListener("click", function(event) {
+content5next.addEventListener("click", function (event) {
   event.preventDefault();
-content1.style.display = "block";
-content2.style.display = "none";
-content3.style.display = "none";
-content4.style.display = "none";
-content5.style.display = "none";
+  content1.style.display = "block";
+  content2.style.display = "none";
+  content3.style.display = "none";
+  content4.style.display = "none";
+  content5.style.display = "none";
 });
-content5prev.addEventListener("click", function(event) {
+content5prev.addEventListener("click", function (event) {
   event.preventDefault();
-content1.style.display = "none";
-content2.style.display = "none";
-content3.style.display = "none";
-content4.style.display = "none";
-content5.style.display = "block";
+  content1.style.display = "none";
+  content2.style.display = "none";
+  content3.style.display = "none";
+  content4.style.display = "none";
+  content5.style.display = "block";
 });
 
 // coffeetoggleLink.addEventListener("click", function(event) {
@@ -146,8 +145,4 @@ content5.style.display = "block";
 //   content5.style.display = "none";
 // });
 
-
 // ------------------------------------------------------------------------------------------------------------
-
-
-

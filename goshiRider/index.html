@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./main.css">
-    <link rel="stylesheet" href="./variables.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./variables.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans&family=Kufam:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inria+Sans&family=Kufam:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Goshi Rider</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="loginElementsRider">
-        <div class="heading">
-            <img src="./assets/goshiLogo.png" alt="" width="200">
-            <h1>GOSHI RIDER</h1>
+      <div class="heading">
+        <img src="./assets/goshiLogo.png" alt="" width="200" />
+        <h1>GOSHI RIDER</h1>
+      </div>
+      <form class="riderLogin">
+        <div class="form-item">
+          <label for="email">EMAIL:</label>
+          <input type="email" name="email" id="email" />
         </div>
-        <form class="riderLogin">
-            <div class="form-item">
-                <label for="email">EMAIL:</label>
-                <input type="email" name="email" id="email">
-            </div>
-            <div class="form-item">
-                <label for="password">PASSWORD:</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <input type="submit" value="LET'S GOSHI GO">
-        </form>
+        <div class="form-item">
+          <label for="password">PASSWORD:</label>
+          <input type="password" name="password" id="password" />
+        </div>
+        <input type="submit" value="LET'S GOSHI GO" />
+      </form>
     </div>
-</body>
+  </body>
 </html>
 <script type="module" src="firebase.js"></script>

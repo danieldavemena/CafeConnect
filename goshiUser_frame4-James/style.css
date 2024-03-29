@@ -1,219 +1,205 @@
-*{
-    font-family: "Kufam", sans-serif;
+* {
+  font-family: "Kufam", sans-serif;
 }
 
-body{
-    background-color: #dbd6d3;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-
+body {
+  background-color: #dbd6d3;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
-.fixed-container{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-     
+.fixed-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 
-.logo{
-    padding-top: 5px;
-    width: 45px;
-    height: 45px;
+.logo {
+  padding-top: 5px;
+  width: 45px;
+  height: 45px;
 }
-nav{
-    position: fixed;
-    background-color: #dbd6d3;
-    top: 0;
-    left: 0;
-    height: 50px;
-    width: 100%;
-    display: block;
+nav {
+  position: fixed;
+  background-color: #dbd6d3;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  display: block;
 }
 
+nav .nav-bar {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: #dbd6d3;
+  margin: 0 auto;
 
-nav .nav-bar{
-    position: relative;
-    height: 100%;
-    width: 100%;
-    background-color: #dbd6d3;
-    margin: 0 auto;
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .nav-bar span {
-    margin-left: 20px;
-    margin-right: auto;
+  margin-left: 20px;
+  margin-right: auto;
 }
 
-.nav-bar .nav-links{
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: 20px;
+.nav-bar .nav-links {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 20px;
 }
 
-.nav-bar .nav-links li{
-    list-style: none;
-    margin: 0 5px;
-
+.nav-bar .nav-links li {
+  list-style: none;
+  margin: 0 5px;
 }
 
-
-.nav-links li a{
-    position: relative;
-    text-decoration: none;
-    font-size: 17px;
-    color: #0B0D0A;
-    font-weight: 400;
-    font-family: "Kufam", sans-serif;
-    padding: 10px;
-    
+.nav-links li a {
+  position: relative;
+  text-decoration: none;
+  font-size: 17px;
+  color: #0b0d0a;
+  font-weight: 400;
+  font-family: "Kufam", sans-serif;
+  padding: 10px;
 }
-.iconuser{
-    color: #0B0D0A;
-    font-size: 30px;
+.iconuser {
+  color: #0b0d0a;
+  font-size: 30px;
 }
 
-.banner{
-    border: 100px;
-    text-align: center;
-    font-size: 30px;
-    font-family: "Kufam", sans-serif;
-    color: white;
-    padding-top: 70px;
-    padding-bottom: 30px;
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
+.banner {
+  border: 100px;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Kufam", sans-serif;
+  color: white;
+  padding-top: 70px;
+  padding-bottom: 30px;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
 }
-.bannercontainer{
-    padding-bottom: 0px;
-    background-image: url(img/banner.jpg);
-    background-size: cover;
-    padding-bottom: 0vh;
-}
-
-.sidebar{
-    position: relative;
-    height: 100%;
-    width: 300px;
-    background-color: #d9d9d9;
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
-}
-.header{
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-    width: 300px;
-    height: 50px;
-    margin-top: -20px;
-    text-align: center;
-    padding-top: 1px;
+.bannercontainer {
+  padding-bottom: 0px;
+  background-image: url(img/banner.jpg);
+  background-size: cover;
+  padding-bottom: 0vh;
 }
 
-.sidebar li{
-    list-style: none;
-    margin: 0 5px;
-    padding-top: 15px;
+.sidebar {
+  position: relative;
+  height: 100%;
+  width: 300px;
+  background-color: #d9d9d9;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
+}
+.header {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  width: 300px;
+  height: 50px;
+  margin-top: -20px;
+  text-align: center;
+  padding-top: 1px;
 }
 
-.sidebar li a{
-    position: relative;
-    text-decoration: none;
-    font-size: 15px;
-    color: #0B0D0A;
-    font-weight: 400;
-    
-}
-.containermenu{
-    background-color: #dbd6d3;
-    width: calc(100% - 380px);
-    margin-top: 200px;
-    margin-left: 380px;
-    
-}
-.logosidebar{
-    padding-top: 30px;
-    width: 120px;
-    height: 120px;
+.sidebar li {
+  list-style: none;
+  margin: 0 5px;
+  padding-top: 15px;
 }
 
-.containerlogo{
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    text-align: center;
-    padding-bottom: 40px;
-    margin-top: 30px;
-    padding-left: 0;
-    height: 150vh;
+.sidebar li a {
+  position: relative;
+  text-decoration: none;
+  font-size: 15px;
+  color: #0b0d0a;
+  font-weight: 400;
+}
+.containermenu {
+  background-color: #dbd6d3;
+  width: calc(100% - 380px);
+  margin-top: 200px;
+  margin-left: 380px;
+}
+.logosidebar {
+  padding-top: 30px;
+  width: 120px;
+  height: 120px;
+}
+
+.containerlogo {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 40px;
+  margin-top: 30px;
+  padding-left: 0;
+  height: 150vh;
 }
 
 .row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    
-    
-  }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
 
 .img-fluid {
-    padding: 10px; 
-    
-  }
-.img{
-    width: 200px;
-    height: 200px;
-    border-radius: 40px;
-    outline: 5px solid #0c0d0a;
-    box-shadow: 0 10px 10px rgb(0, 0, 0, 0.5);
+  padding: 10px;
+}
+.img {
+  width: 200px;
+  height: 200px;
+  border-radius: 40px;
+  outline: 5px solid #0c0d0a;
+  box-shadow: 0 10px 10px rgb(0, 0, 0, 0.5);
 }
 
-#content1{
-    display: block;
+#content1 {
+  display: block;
 }
-#content2{
-    display: none;
+#content2 {
+  display: none;
 }
-#content3{
-    display: none;
+#content3 {
+  display: none;
 }
-#content4{
-    display: none;
+#content4 {
+  display: none;
 }
-#content5{
-    display: none;
+#content5 {
+  display: none;
 }
-.next{
-    text-decoration: none;
-    font-family: "Kufam", sans-serif;
-    position: fixed;
-    right: 20px;
-    margin-top: 200px;
-    z-index: 100;
-
-    
+.next {
+  text-decoration: none;
+  font-family: "Kufam", sans-serif;
+  position: fixed;
+  right: 20px;
+  margin-top: 200px;
+  z-index: 100;
 }
-#next{
-    width: 50px;
-    height: 50px;
-    color: #0c0d0a;
-    
+#next {
+  width: 50px;
+  height: 50px;
+  color: #0c0d0a;
 }
-.prev{
-    text-decoration: none;
-    font-family: "Kufam", sans-serif;
-    position: fixed;
-    left: 320px;
-    margin-top: 200px;
-    z-index: 100;
+.prev {
+  text-decoration: none;
+  font-family: "Kufam", sans-serif;
+  position: fixed;
+  left: 320px;
+  margin-top: 200px;
+  z-index: 100;
 }
-#prev{
-    width: 50px;
-    height: 50px;
-    color: #0c0d0a;
+#prev {
+  width: 50px;
+  height: 50px;
+  color: #0c0d0a;
 }
 
 .containercontent {
-    width: calc(100%);
+  width: calc(100%);
 }

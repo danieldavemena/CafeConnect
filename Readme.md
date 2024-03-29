@@ -37,3 +37,7 @@ A collaborative Point of Sales Systems project for second semester - final term 
 **27/03/2024**
 - Created the chat feature backend
 - Designed Goshi User homepage web UI
+#
+**29/03/2024**
+- Fixed chat bug (other user receiving chats for other accounts)
+- Finished chat feature

@@ -340,10 +340,6 @@ button {
     margin-left: auto;
 }
 
-.isLoggedOut {
-    display: none;
-}
-
 .riderSettings {
     font-size: 10.5pt;
     margin: auto 20px;
@@ -394,7 +390,7 @@ button {
 .isLoggedOut {
     width: 100%;
     height: 100vh;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;

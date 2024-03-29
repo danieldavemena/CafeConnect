@@ -72,10 +72,10 @@ onSnapshot(
       console.log(message.doc.data())
 
       if (message.type === "added") {
-        if(message.doc.data().sender == 'nvswvZRJDaQygJVpoOUBgijH6St2') {
+        if(message.doc.data().sender == 'nvswvZRJDaQygJVpoOUBgijH6St2' && message.doc.data().customer == customerID) {
           document.querySelector('.bubble').innerHTML += `<div class="id-${message.doc.id} textBubble left">${message.doc.data().message}</div>`
           document.querySelector('.bubble').scrollIntoView({ block: 'end'})
-        } else {
+        } else if (message.doc.data().sender == customerID && message.doc.data().customer == customerID) {
           document.querySelector('.bubble').innerHTML += `<div class="id-${message.doc.id} textBubble right">${message.doc.data().message}</div>`
           document.querySelector('.bubble').scrollIntoView({ block: 'end'})
         }
@@ -96,7 +96,8 @@ document.querySelector('.messageHolder').addEventListener('submit', (e) => {
     createdAt: serverTimestamp(),
     receiver: 'nvswvZRJDaQygJVpoOUBgijH6St2',
     message: message,
-    sender: customerID
+    sender: customerID,
+    customer: customerID
   })
 })
 

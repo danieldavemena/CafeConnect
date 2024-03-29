@@ -12,7 +12,6 @@
     <title>Goshi Riders</title>
 </head>
 <body>
-      <div class="isLoggedIn">
         <div class="topbar">
             <div class="title">
                 <img src="./assets/goshiLogo.png" alt="" width="40px" height="40px">
@@ -123,12 +122,6 @@
                 <div class="profile"><img width="40" height="40" src="https://img.icons8.com/windows/96/0d0b0a/user-male-circle.png" alt="user-male-circle"/></div>
             </div>
           </div>
-      </div>
-
-      <div class="isLoggedOut">
-        <h3>Log In to access Rider Dashboard</h3>
-        <p>or apply to any nearby Goshi Cafe branch</p>
-      </div>
 </body>
 </html>
 <script type="module" src="dashboard.js"></script>
@@ -190,6 +183,7 @@ function chat(customerID, orderID, customerName) {
 }
 
 function closeChat() {
+  document.querySelector('.bubble').innerHTML = '';
   document.querySelector('.conversation').style['display'] = 'none'
   orderList.style['display']= 'flex';
   document.querySelector('.bottombar').style['display'] = 'flex'

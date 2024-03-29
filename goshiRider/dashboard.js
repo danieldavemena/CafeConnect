@@ -27,8 +27,7 @@
  window.onload = function(){
 
   if(!riderID) {
-    document.querySelector('.isLoggedIn').style['display'] = 'none';
-    document.querySelector('.isLoggedOut').style['display'] = 'flex';
+    window.location.href = 'loggedOut.html'
   }
 }
 
@@ -63,8 +62,6 @@ onSnapshot(query(collection(db, 'goshiOrders'), where("riderID", "==", "none")),
   
   waitingOrder.docChanges().forEach((order) => {
     let element = document.querySelector('.order')
-    console.log(order.doc.data().items)
-    console.log(order.type)
 
     if(order.type === 'added') {
       element.innerHTML += `<div class="id-${order.doc.id}"><img class="bean" width="30" height="30" src="https://img.icons8.com/fluency-systems-regular/96/FFFFFF/coffee-beans-.png" alt="coffee-beans-"/><p><b>Quantity:</b> ${order.doc.data().quantity}</p> <p><b>Price:</b> ${order.doc.data().price}</p><button onclick="seeItem('${order.doc.id}', '${order.doc.data().items}', ${order.doc.data().price}, ${order.doc.data().quantity})" class="seeItem">ITEMS</button></div>`;
@@ -91,8 +88,6 @@ onSnapshot(query(collection(db, 'goshiOrders'), where("riderID", "==", riderID))
   
   waitingOrder.docChanges().forEach((order) => {
     let element = document.querySelector('.takenOrder')
-    console.log(order.doc.data().items)
-    console.log(order.type)
 
     if(order.type === 'added') {
       element.innerHTML += `<div class="id-${order.doc.id}-${riderID}"><img class="bean" width="30" height="30" src="https://img.icons8.com/fluency-systems-regular/96/FFFFFF/coffee-beans-.png" alt="coffee-beans-"/><p><b>${order.doc.data().name}</b></p><button onclick="chat('${order.doc.data().customerID}', '${order.doc.id}', '${order.doc.data().name}')" class="chat">CHAT</button></div>`;
@@ -145,14 +140,13 @@ setInterval(() => {
   let newState = window.customerID
 
   if(oldState != newState) {
-    //document.querySelector('.textBubble').parentNode.removeChild(document.querySelector('.textBubble'))
 
     getDocs( query(collection(db, "goshiMessages"), orderBy('createdAt', 'asc'))).then((messages) => {
         messages.docs.forEach((message) => {
-          if(message.data().sender == newState ) {
+          if(message.data().sender == newState && message.data().customer == newState) {
             document.querySelector('.bubble').innerHTML += `<div class="id-${message.id} textBubble left">${message.data().message}</div>`
             document.querySelector('.bubble').scrollIntoView({ block: 'end'})
-          } else if (message.data().sender == riderID){
+          } else if (message.data().sender == riderID && message.data().customer == newState){
             document.querySelector('.bubble').innerHTML += `<div class="id-${message.id} textBubble right">${message.data().message}</div>`
             document.querySelector('.bubble').scrollIntoView({ block: 'end'})
           }
@@ -167,13 +161,12 @@ onSnapshot(
   query(collection(db, "goshiMessages"), orderBy('createdAt', 'asc')),
   (messages) => {
     messages.docChanges().forEach((message) => {
-      console.log(message.doc.data().sender)
 
       if (message.type === "added") {
-        if(message.doc.data().sender == window.customerID ) {
+        if(message.doc.data().sender == window.customerID && message.doc.data().customer == window.customerID ) {
           document.querySelector('.bubble').innerHTML += `<div class="id-${message.doc.id} textBubble left">${message.doc.data().message}</div>`
           document.querySelector('.bubble').scrollIntoView({ block: 'end'})
-        } else if (message.doc.data().sender == ready){
+        } else if (message.doc.data().sender == ready && message.doc.data().customer == window.customerID){
           document.querySelector('.bubble').innerHTML += `<div class="id-${message.doc.id} textBubble right">${message.doc.data().message}</div>`
           document.querySelector('.bubble').scrollIntoView({ block: 'end'})
         }
@@ -194,7 +187,8 @@ document.querySelector('.messageHolder').addEventListener('submit', (e) => {
     createdAt: serverTimestamp(),
     receiver: window.customerID,
     message: message,
-    sender: riderID
+    sender: riderID,
+    customer: window.customerID
   })
 })
 

@@ -232,6 +232,8 @@ setInterval(() => {
   let newState = window.customerID;
 
   if (oldState != newState) {
+    document.querySelector(".bubble").innerHTML = "";
+
     getDocs(
       query(collection(db, "goshiMessages"), orderBy("createdAt", "asc"))
     ).then((messages) => {
@@ -295,13 +297,15 @@ document.querySelector(".messageHolder").addEventListener("submit", (e) => {
   let message = document.querySelector(".messageHolder").message.value;
   document.querySelector(".messageHolder").reset();
 
-  addDoc(collection(db, "goshiMessages"), {
-    createdAt: serverTimestamp(),
-    receiver: window.customerID,
-    message: message,
-    sender: riderID,
-    customer: window.customerID,
-  });
+  if (message != "") {
+    addDoc(collection(db, "goshiMessages"), {
+      createdAt: serverTimestamp(),
+      receiver: window.customerID,
+      message: message,
+      sender: riderID,
+      customer: window.customerID,
+    });
+  }
 });
 
 // Logging Out

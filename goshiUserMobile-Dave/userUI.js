@@ -100,13 +100,15 @@ document.querySelector(".messageHolder").addEventListener("submit", (e) => {
   let message = document.querySelector(".messageHolder").message.value;
   document.querySelector(".messageHolder").reset();
 
-  addDoc(collection(db, "goshiMessages"), {
-    createdAt: serverTimestamp(),
-    receiver: "nvswvZRJDaQygJVpoOUBgijH6St2",
-    message: message,
-    sender: customerID,
-    customer: customerID,
-  });
+  if (message != "") {
+    addDoc(collection(db, "goshiMessages"), {
+      createdAt: serverTimestamp(),
+      receiver: "nvswvZRJDaQygJVpoOUBgijH6St2",
+      message: message,
+      sender: customerID,
+      customer: customerID,
+    });
+  }
 });
 
 // // Take order from notifications

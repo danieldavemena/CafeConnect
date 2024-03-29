@@ -41,3 +41,4 @@ A collaborative Point of Sales Systems project for second semester - final term 
 **29/03/2024**
 - Fixed chat bug (other user receiving chats for other accounts)
 - Finished chat feature
+- Fixed Goshi Rider dashboard security

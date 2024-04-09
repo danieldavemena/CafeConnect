@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 import {
   getFirestore,
   getDoc,
@@ -13,7 +13,7 @@ import {
   where,
   orderBy,
   serverTimestamp,
-} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -21,9 +21,10 @@ import {
   EmailAuthProvider,
   reauthenticateWithCredential,
   updatePassword,
-} from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+import { long, lat } from "./geo.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -147,6 +148,7 @@ onSnapshot(
 document.querySelector(".takeOrder").addEventListener("click", (e) => {
   updateDoc(doc(db, "goshiOrders", window.orderID), {
     riderID: riderID,
+    sendingLoc: "ok",
   });
   document.body.style["overflow"] = "auto";
   document.querySelector(".items").style["display"] = "none";
@@ -262,6 +264,13 @@ setInterval(() => {
   }
 }, 10);
 
+setInterval(() => {
+  updateDoc(doc(db, "goshiRiders", dataID), {
+    long: long,
+    lat: lat,
+  });
+}, 10000);
+
 onSnapshot(
   query(collection(db, "goshiMessages"), orderBy("createdAt", "asc")),
   (messages) => {
@@ -304,6 +313,7 @@ document.querySelector(".messageHolder").addEventListener("submit", (e) => {
       message: message,
       sender: riderID,
       customer: window.customerID,
+      rider: riderID,
     });
   }
 });

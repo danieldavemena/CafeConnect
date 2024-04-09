@@ -186,7 +186,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px 0;
+  margin-top: 50px;
 }
 
 .order,
@@ -194,6 +194,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 100px;
 }
 
 .order div,
@@ -434,7 +435,13 @@ button {
   height: 35px;
   margin-right: 10px;
   margin-left: auto;
-  width: 100px;
+  width: 85bpx;
+  border: none;
+  text-align: center;
+  background: var(--color-accent-1);
+  color: var(--color-text-secondary);
+  font-weight: bold;
+  border-radius: 10px;
 }
 
 .message {
@@ -442,6 +449,11 @@ button {
   margin-right: auto;
   height: 30px;
   width: calc(100% - 135px);
+  padding: 0 10px;
+  font-size: 12pt;
+  border-radius: 10px;
+  border: 2px solid var(--color-text-primary);
+  background-color: var(--color-bg);
 }
 
 .messages {

@@ -1,0 +1,195 @@
+*{
+    font-family: "Kufam", sans-serif;
+}
+body{
+    padding: 0%;
+    margin: 0%;
+    background-color: gray;
+}
+.nav{
+    height: 60px;
+    background-color:  #dbd6d3;
+    max-width: auto;
+    display: flex;
+    gap: 1020PX;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
+    width: 1360px;
+    
+}
+.nav ul{
+    margin-right: 50px;
+    padding-top: 8px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    justify-content: right;
+    list-style-type: none;
+}
+.nav ul li{
+    margin: 10px;
+    float: right;
+}
+.nav ul li a{
+    color: #0B0D0A;
+    text-decoration: none;
+}
+
+.fa-regular{
+    /* padding-bottom: 15px; */
+    font-size: 20px;
+    padding-left: 10px;
+    float: right;
+}
+.logo{
+    margin-top: 10px;
+    margin-left: 50px;
+    
+   
+}
+.logo img{
+    background-color: #ffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+}
+/* =================================================content============================================== */
+
+.container{
+    display: flex;
+    
+}
+
+.cashier{
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-bottom: 80px;
+    padding-top: 20px;
+    background-color: #ffff;
+    max-width: 900px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+
+}
+.details{
+    display: flex;
+    gap: 510px;
+}
+.details h3 img{
+     width: 20px;
+     height: 20px;
+     margin-left: 5px;
+}
+
+/* table content */
+
+.container-table{
+    outline: 5px solid #dbd6d3;
+    border-radius: 12px;
+    color: white;
+    
+}
+.head{
+    display: flex;
+    gap: 630px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #0B0D0A;
+    color: #dbd6d3;
+    max-width: auto;
+    margin-bottom: 3px;
+}
+
+.table-content{
+    display: flex;
+    padding: 20px;
+    background-color: #522c00;
+
+}
+.table{
+    padding: 20px;
+}
+
+.table input{
+    width: 500px;
+    height: 280PX;
+    outline: 5PX solid #522c00;
+    border-radius: 10px;
+}
+
+.table-info{
+    padding: 20px;
+}
+
+.list-container{
+    display: flex;
+    gap: 80px;
+    width: 300px;
+    align-items: center;
+}
+.list-container ul{
+    list-style-type: none;
+    padding-left: 0%;
+    margin: 0%;
+
+}
+.table-info label{
+    display: flex;
+    gap: 15px;
+    width: 200px;
+    
+}
+#Amount{
+    border: 5px solid #522c00;
+    border-radius: 10px;
+    height: 25px;
+    margin-top: 10px;
+    
+}
+
+#Confirmbtn{
+    background-color: green;
+    color: white;
+    padding-left: 100px;
+    padding-right: 100px;
+    height: 50px;
+    margin: 0%;
+    border-radius: 100px;
+    cursor: pointer;
+}
+/* ======================================================================================= */
+.orders{
+   
+    background-color: #dbd6d3;
+    width: 300px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    
+
+    
+}
+
+.orders ul{
+    list-style-type: none;
+    text-align: center;
+    padding: 0%;
+    
+}
+.orders ul li{
+    margin: 20px;
+    background-color: #522c00;
+    height: 30px;
+    padding-top: 10px;
+    width: 260px;
+    border-radius: 10px;
+}
+.orders ul li a{
+    text-decoration: none;
+    color: white;
+}
+.orders h2{
+    width: 300px;
+    height: 50px;
+    margin: 0%;
+    padding-top: 20px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    text-align: center;
+
+}
+

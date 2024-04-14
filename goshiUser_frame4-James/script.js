@@ -136,13 +136,13 @@ content5prev.addEventListener("click", function (event) {
   content5.style.display = "block";
 });
 
-// coffeetoggleLink.addEventListener("click", function(event) {
-//     event.preventDefault();
-//   content1.style.display = "block";
-//   content2.style.display = "none";
-//   content3.style.display = "none";
-//   content4.style.display = "none";
-//   content5.style.display = "none";
-// });
+coffeetoggleLink.addEventListener("click", function (event) {
+  event.preventDefault();
+  content1.style.display = "block";
+  content2.style.display = "none";
+  content3.style.display = "none";
+  content4.style.display = "none";
+  content5.style.display = "none";
+});
 
 // ------------------------------------------------------------------------------------------------------------

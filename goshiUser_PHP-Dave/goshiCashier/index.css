@@ -1,0 +1,93 @@
+:root {
+  --color-bg: #dbd6d3;
+  --color-text-primary: #0b0d0a;
+  --color-accent-1: #34170a;
+  --color-text-secondary: white;
+  --color-box-shadow: #0b0d0a94;
+}
+
+* {
+  font-family: "Kufam", sans-serif;
+}
+
+body {
+  overflow: hidden;
+  background-color: var(--color-bg);
+  width: 98vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loginElementsCashier {
+  width: 100%;
+  margin-top: -2vh;
+  display: inherit;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.heading {
+  display: inherit;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading h1 {
+  margin-top: 10px;
+  font-size: 26pt;
+}
+
+.cashierLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.cashierLogin input[type="submit"] {
+  background: var(--color-accent-1);
+  color: var(--color-text-secondary);
+  font-size: 14pt;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px 110px;
+  border: none;
+  box-shadow: -2px 2px 5px var(--color-box-shadow);
+}
+
+.form-item {
+  display: inherit;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-item label {
+  font-weight: bold;
+  font-size: 16pt;
+}
+
+.form-item input[type="text"],
+.form-item input[type="password"] {
+  padding: 0 10px;
+  font-size: 15pt;
+  height: 31px;
+  border-radius: 10px;
+  border: 2px solid var(--color-text-primary);
+  background-color: var(--color-bg);
+}
+
+.form-item input[type="password"] {
+  width: 200px;
+}
+
+.form-item input[type="text"] {
+  width: 205px;
+}

@@ -1,0 +1,146 @@
+:root {
+  --color-bg: #dbd6d3;
+  --color-text-primary: #0b0d0a;
+  --color-accent-1: #34170a;
+  --color-text-secondary: white;
+  --color-box-shadow: #0b0d0a94;
+}
+
+* {
+  font-family: "Kufam", sans-serif;
+}
+
+body {
+  background-color: #dbd6d3;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.productContainer,
+.deleteContainer {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: var(--color-box-shadow);
+  z-index: 101;
+}
+
+.productAdd,
+.deleteProduct {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.topBar {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  box-shadow: 0 2px 5px #0b0d0aa0;
+  background: #dbd6d3;
+  z-index: 100;
+}
+
+.topBar .logo {
+  margin-left: 20px;
+  margin-right: auto;
+}
+
+.topBar .menus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  margin-left: auto;
+  gap: 30px;
+}
+
+.topBar .menus .links {
+  display: flex;
+  gap: 30px;
+  flex-direction: row;
+  color: var(--color-text-primary);
+}
+
+li {
+  list-style: none;
+}
+
+.menuContainer {
+  margin-top: 0;
+  margin-bottom: auto;
+  margin-right: 0;
+  margin-left: auto;
+  width: 100%;
+}
+
+.category {
+  color: #0d0b0a;
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.category button {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  padding: 70px 70px;
+}
+
+.menuItems {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+.menuProduct {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 10px;
+  height: 200px;
+  width: 200px;
+  background: #34170a;
+  cursor: pointer;
+}
+
+.prev {
+  position: fixed;
+  left: 15px;
+  top: 50%;
+  transition: translateY(-50%);
+  cursor: pointer;
+}
+
+.next {
+  position: fixed;
+  right: 15px;
+  top: 50%;
+  transition: translateY(-50%);
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
